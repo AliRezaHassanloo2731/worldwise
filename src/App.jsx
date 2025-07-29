@@ -3,10 +3,12 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import HomPage from "./pages/HomPage";
+
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
@@ -14,7 +16,7 @@ function App() {
       <Routes>
         <Route
           path={"/"}
-          element={<HomPage />}
+          element={<Homepage />}
         />
         <Route
           path="product"
@@ -27,6 +29,10 @@ function App() {
         <Route
           path="*"
           element={<PageNotFound />}
+        />
+        <Route
+          path="app"
+          element={<AppLayout />}
         />
       </Routes>
     </BrowserRouter>
