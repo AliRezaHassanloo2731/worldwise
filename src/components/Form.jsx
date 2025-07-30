@@ -4,46 +4,113 @@ import { useState } from "react";
 
 import styles from "./Form.module.css";
 
-export function convertToEmoji(countryCode) {
+// export function convertToEmoji(
+//   countryCode
+// ) {
+//   const codePoints = countryCode
+//     .toUpperCase()
+//     .split("")
+//     .map(
+//       (char) =>
+//         127397 + char.charCodeAt()
+//     );
+//   return String.fromCodePoint(
+//     ...codePoints
+//   );
+// }
+export function convertToEmoji(
+  countryCode
+) {
+  // Validate input
+  if (
+    typeof countryCode !== "string" ||
+    countryCode.length !== 2
+  ) {
+    throw new Error(
+      "Expected a 2-letter country code (e.g., 'US', 'GB')"
+    );
+  }
+  //   export function convertToEmoji(countryCode) {
+  //   if (
+  //     typeof countryCode !== "string" ||
+  //     countryCode.length !== 2
+  //   ) {
+  //     return "";
+  //   }
+
+  //   const codePoints = countryCode
+  //     .toUpperCase()
+  //     .split("")
+  //     .map((char) => 127397 + char.charCodeAt(0));
+
+  //   return String.fromCodePoint(...codePoints);
+  // }
+
+  // Convert to uppercase and calculate code points
   const codePoints = countryCode
     .toUpperCase()
     .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
+    .map(
+      (char) =>
+        127397 + char.charCodeAt()
+    );
+
+  // Return the flag emoji
+  return String.fromCodePoint(
+    ...codePoints
+  );
 }
 
 function Form() {
-  const [cityName, setCityName] = useState("");
-  const [country, setCountry] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [notes, setNotes] = useState("");
+  const [cityName, setCityName] =
+    useState("");
+  const [country, setCountry] =
+    useState("");
+  const [date, setDate] = useState(
+    new Date()
+  );
+  const [notes, setNotes] =
+    useState("");
 
   return (
     <form className={styles.form}>
       <div className={styles.row}>
-        <label htmlFor="cityName">City name</label>
+        <label htmlFor="cityName">
+          City name
+        </label>
         <input
           id="cityName"
-          onChange={(e) => setCityName(e.target.value)}
+          onChange={(e) =>
+            setCityName(e.target.value)
+          }
           value={cityName}
         />
         {/* <span className={styles.flag}>{emoji}</span> */}
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        <label htmlFor="date">
+          When did you go to {cityName}?
+        </label>
         <input
           id="date"
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) =>
+            setDate(e.target.value)
+          }
           value={date}
         />
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <label htmlFor="notes">
+          Notes about your trip to{" "}
+          {cityName}
+        </label>
         <textarea
           id="notes"
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e) =>
+            setNotes(e.target.value)
+          }
           value={notes}
         />
       </div>
