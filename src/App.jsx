@@ -4,6 +4,7 @@ import {
 } from "react";
 import {
   BrowserRouter,
+  Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -76,9 +77,9 @@ function App() {
           <Route
             index
             element={
-              <CityList
-                cities={cities}
-                isLoading={isLoading}
+              <Navigate
+                replace
+                to="cities"
               />
             }
           />
