@@ -13,6 +13,8 @@ function CitiesProvider({ children }) {
   const [cities, setCities] = useState(
     []
   );
+  const [currentCity, setCurrentCity] =
+    useState({});
   const [isLoading, setIsLoading] =
     useState(false);
 
@@ -37,9 +39,44 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+  async function getCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(
+        `${BASE_URL}/cities/${id}`
+      );
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch {
+      alert(
+        "there was an error loading data..."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function getFlagEmoji(countryCode) {
+    return [
+      ...countryCode.toUpperCase(),
+    ]
+      .map((char) =>
+        String.fromCodePoint(
+          127397 + char.charCodeAt(0)
+        )
+      )
+      .reduce((a, b) => `${a}${b}`);
+  }
+
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading }}
+      value={{
+        cities,
+        isLoading,
+        currentCity,
+        getCity,
+        getFlagEmoji,
+      }}
     >
       {children}
     </CitiesContext.Provider>

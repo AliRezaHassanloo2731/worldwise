@@ -4,67 +4,10 @@ import { useState } from "react";
 
 import styles from "./Form.module.css";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
 
-// export function convertToEmoji(
-//   countryCode
-// ) {
-//   const codePoints = countryCode
-//     .toUpperCase()
-//     .split("")
-//     .map(
-//       (char) =>
-//         127397 + char.charCodeAt()
-//     );
-//   return String.fromCodePoint(
-//     ...codePoints
-//   );
-// }
-export function convertToEmoji(
-  countryCode
-) {
-  // Validate input
-  if (
-    typeof countryCode !== "string" ||
-    countryCode.length !== 2
-  ) {
-    throw new Error(
-      "Expected a 2-letter country code (e.g., 'US', 'GB')"
-    );
-  }
-  //   export function convertToEmoji(countryCode) {
-  //   if (
-  //     typeof countryCode !== "string" ||
-  //     countryCode.length !== 2
-  //   ) {
-  //     return "";
-  //   }
-
-  //   const codePoints = countryCode
-  //     .toUpperCase()
-  //     .split("")
-  //     .map((char) => 127397 + char.charCodeAt(0));
-
-  //   return String.fromCodePoint(...codePoints);
-  // }
-
-  // Convert to uppercase and calculate code points
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map(
-      (char) =>
-        127397 + char.charCodeAt()
-    );
-
-  // Return the flag emoji
-  return String.fromCodePoint(
-    ...codePoints
-  );
-}
+import ButtonBack from "./ButtonBack ";
 
 function Form() {
-  const navigate = useNavigate();
   const [cityName, setCityName] =
     useState("");
   const [country, setCountry] =
@@ -122,15 +65,7 @@ function Form() {
         <Button type="primary">
           Add
         </Button>
-        <Button
-          type="back"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(-1);
-          }}
-        >
-          &larr; Back
-        </Button>
+        <ButtonBack />
       </div>
     </form>
   );
