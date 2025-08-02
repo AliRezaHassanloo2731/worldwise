@@ -20,6 +20,8 @@ import {
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 
+import Button from "./Button";
+
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] =
@@ -39,6 +41,17 @@ function Map() {
 
   useEffect(
     function () {
+      if (geolocationPosition)
+        setMapPosition([
+          geolocationPosition.lat,
+          geolocationPosition.lng,
+        ]);
+    },
+    [geolocationPosition]
+  );
+
+  useEffect(
+    function () {
       if (mapLat && mapLng)
         setMapPosition([
           mapLat,
@@ -52,6 +65,16 @@ function Map() {
     <div
       className={styles.mapContainer}
     >
+      {!geolocationPosition && (
+        <Button
+          type="position"
+          onClick={getPosition}
+        >
+          {isLoadingposition
+            ? "loading..."
+            : "use your position"}
+        </Button>
+      )}
       <MapContainer
         className={styles.map}
         center={mapPosition}
