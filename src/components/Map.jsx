@@ -18,7 +18,7 @@ import {
 } from "react";
 
 import { useCities } from "../contexts/CitiesContext";
-import { latLng } from "leaflet";
+import { useGeolocation } from "../hooks/useGeolocation";
 
 function Map() {
   const { cities } = useCities();
@@ -26,6 +26,11 @@ function Map() {
     useState([40, 0]);
   const [searchParams] =
     useSearchParams();
+  const {
+    isLoading: isLoadingposition,
+    position: geolocationPosition,
+    getPosition,
+  } = useGeolocation();
 
   const mapLat =
     searchParams.get("lat");
