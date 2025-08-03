@@ -10,7 +10,7 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,43 +34,7 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
-    },
-    {
-      "cityName": "Porto",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-08-20T14:10:00.000Z",
-      "notes": "Charming riverside views.",
-      "position": {
-        "lat": 41.1579438,
-        "lng": -8.6291053
-      },
-      "id": 12345678
-    },
-    {
-      "cityName": "Barcelona",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-09-10T10:00:00.000Z",
-      "notes": "Loved the architecture!",
-      "position": {
-        "lat": 41.3850639,
-        "lng": 2.1734035
-      },
-      "id": 23456789
-    },
-    {
-      "cityName": "Munich",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-11-05T12:30:00.000Z",
-      "notes": "Great food and culture.",
-      "position": {
-        "lat": 48.1351253,
-        "lng": 11.5819806
-      },
-      "id": 34567890
+      "id": "98443197"
     }
   ]
 }

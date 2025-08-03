@@ -55,6 +55,58 @@ function CitiesProvider({ children }) {
       setIsLoading(false);
     }
   }
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(
+        `${BASE_URL}/cities`,
+        {
+          method: "POST",
+          body: JSON.stringify(newCity),
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+
+      setCities((cities) => [
+        ...cities,
+        data,
+      ]);
+    } catch {
+      alert(
+        "there was an error loading data..."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id) {
+    try {
+      setIsLoading(true);
+      await fetch(
+        `${BASE_URL}/cities/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      setCities((cities) =>
+        cities.filter(
+          (city) => city.id !== id
+        )
+      );
+    } catch {
+      alert(
+        "there was an error deleting city..."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   function getFlagEmoji(countryCode) {
     return [
@@ -76,6 +128,8 @@ function CitiesProvider({ children }) {
         currentCity,
         getCity,
         getFlagEmoji,
+        createCity,
+        deleteCity,
       }}
     >
       {children}
