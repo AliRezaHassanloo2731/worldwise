@@ -35,42 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "9f46",
-      "cityName": "Pancrudo",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-08-03T10:15:39.889Z",
-      "notes": "t",
-      "position": {
-        "lat": "40.79717741518769",
-        "lng": "-1.0107421875000002"
-      }
-    },
-    {
-      "id": "ddfa",
-      "cityName": "Encamp",
-      "country": "Andorra",
-      "emoji": "🇦🇩",
-      "date": "2025-08-03T10:18:24.919Z",
-      "notes": "wd",
-      "position": {
-        "lat": "42.512601715736686",
-        "lng": "1.6479492187500002"
-      }
-    },
-    {
-      "id": "fb47",
-      "cityName": "Manteigas",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2025-08-07T09:17:32.111Z",
-      "notes": "",
-      "position": {
-        "lat": "40.413496049701955",
-        "lng": "-7.470703125000001"
-      }
     }
   ]
 }
